@@ -1,8 +1,8 @@
 <?php
 
 require_once 'Database.php';
-
-class Compra {
+class Compra
+{
 
     private $db;
 
@@ -13,16 +13,15 @@ class Compra {
 
     public function adicionarCompra($ativo, $quantidade, $valorUnitario, $dataCompra)
     {
-        $sql = "INSERT INTO compras (ativo, quantidade, valor_unitario, data_compra) VALUES (:ativo, :quantidade, :valor_unitario, :data_compra)";
+        $sql = "INSERT INTO compras (ativo, quantidade, valor_unitario, data_compras) VALUES (:ativo, :quantidade, :valor_unitario,:data_compras)";
         $inserir = $this->db->prepare($sql);
         $inserir->execute([
             'ativo' => $ativo,
             'quantidade' => $quantidade,
             'valor_unitario' => $valorUnitario,
-            'data_compra' => $dataCompra
+            'data_compras' => $dataCompra
         ]);
-    
+
+        return true;
     }
-
-
 }

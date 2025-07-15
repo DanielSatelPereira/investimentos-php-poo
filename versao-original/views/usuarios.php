@@ -1,35 +1,35 @@
 <?php
-    require_once 'classes/Usuario.php';
+require_once 'classes/Usuario.php';
 
-    $usuario = new Usuario();
+$usuario = new Usuario();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['excluir'])) {
-            $usuario->excluirUsuario($_POST['id']);
-        }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['excluir'])) {
+        $usuario->excluirUsuario($_POST['id']);
     }
-    
-    $usuarios = $usuario->listarUsuarios();
+}
+
+$usuarios = $usuario->listarUsuarios();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Usuários</title>
-    <link rel="stylesheet" href="css/style.css">
+<?php include 'head.php'; ?>
+
+<title>Gerenciar Usuários</title>
 </head>
+
 <body>
+
+    <?php include 'header.php'; ?>
+
     <h1>Gerenciar Usuários</h1>
-    <table border='1'>
+    <table class="border">
         <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>E-mail</th>
             <th>Ações</th>
         </tr>
-        <?php foreach($usuarios as $usuario): ?>
+        <?php foreach ($usuarios as $usuario): ?>
             <tr>
                 <td><?= $usuario['id'] ?></td>
                 <td><?= $usuario['nome'] ?></td>
@@ -47,5 +47,5 @@
             </tr>
         <?php endforeach; ?>
     </table>
-</body>
-</html>
+
+    <?php include 'footer.php'; ?>

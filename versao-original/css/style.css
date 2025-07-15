@@ -19,7 +19,7 @@ header nav {
     justify-content: center;
 }
 
-header nav .menu{
+header nav .menu {
     list-style: none;
     display: flex;
     padding: 0;
@@ -31,11 +31,10 @@ header nav .menu li a {
     text-decoration: none;
     color: #fff;
     padding: 5px 10px;
-
 }
 
 header nav .menu li a:hover {
-    background: #003366;
+    background-color: #003366;
     border-radius: 5px;
 }
 
@@ -45,7 +44,6 @@ main {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-
 }
 
 main h1 {
@@ -60,12 +58,12 @@ main p {
 .cards {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .card {
     min-width: 200px;
-    background-color: #cecece;
+    background-color: #c0c0c0;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -84,10 +82,10 @@ main p {
     color: #004d99;
 }
 
-footer{
+footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #004d99;
+    background-color: #003366;
     color: #fff;
     margin-top: 20px;
 }
@@ -121,15 +119,19 @@ form button {
     width: 100%;
     padding: 10px;
     background-color: #004d99;
-    color: #fff;
+    color: #fff;    
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
 }
 
-form button:hover{
+form button:hover {
     background-color: #003366;
+}
+
+h1 {
+    text-align: center;
 }
 
 table {

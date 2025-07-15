@@ -2,7 +2,7 @@
 
 require_once 'Database.php';
 
-class Ativo 
+class Ativo
 {
     private $db;
 
@@ -13,21 +13,20 @@ class Ativo
 
     public function calcularPrecoMedio()
     {
-        $sql = "SELECT
-                    ativo,
-                    SUM(quantidade) as total_quantidade,
-                    SUM(quantidade * valor_unitario) as total_valor
-                FROM compras
-                GROUP BY ativo";
+        $sql = "SELECT ativo,
+        SUM(quantidade) as total_quantidade,
+        SUM(quantidade * valor_unitario) as total_valor 
+        FROM compras
+        GROUP BY ativo";
+
         $query = $this->db->query($sql);
         $ativos = $query->fetchAll(PDO::FETCH_ASSOC);
-        //echo "<pre>";
-        //print_r($ativos);
+       
         foreach($ativos as &$ativo) {
-            $ativo['preco_medio'] = $ativo['total_valor'] / $ativo['total_quantidade'];
+                $ativo ['preco_medio'] = $ativo['total_valor'] / $ativo['total_quantidade'];
+
         }
-        //echo "<pre>";
-        //print_r($ativos);
+       
         return $ativos;
     }
 }

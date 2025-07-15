@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class PostApiService
 {
@@ -6,11 +6,11 @@ class PostApiService
 
     public function __construct()
     {
-        $this->baseUrl = 'https://jsonplaceholder.typicode.com';
+        $this->baseUrl = "https://jsonplaceholder.typicode.com";
     }
     public function getPosts()
     {
-        //https://jsonplaceholder.typicode.com/posts
+        //https://jsonplaceholder.typicode.com/posts para melhores referencias
         $url = $this->baseUrl . '/posts';
 
         $curl = curl_init($url);

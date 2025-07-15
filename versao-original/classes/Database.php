@@ -1,7 +1,7 @@
 <?php
 
-class Database {
-   
+class Database{
+
     private $host = 'localhost';
     private $port = '3306';
     private $db = 'bolsa_de_valores';
@@ -9,17 +9,17 @@ class Database {
     private $pass = '';
     private $pdo;
 
-    public function connect()
+    public function connect() 
     {
-        if (!$this->pdo) {
+        if(!$this->pdo){
             try {
-                $dns = "mysql:host={$this->host};port={$this->port};dbname={$this->db}";
+                $dns ="mysql:host={$this->host};port={$this->port};dbname={$this->db}";
                 $this->pdo = new PDO($dns, $this->user, $this->pass);
-                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (\PDOException $th) {
-                die("Erro ao conectar ao banco deados" . $th->getMessage());
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+            } catch (\Throwable $th) {
+                die("Erro ao conectar ao banco de dados" . $th->getMessage()); 
             }
-        }
+        }   
 
         return $this->pdo;
     }

@@ -1,0 +1,15 @@
+# Ignorar arquivos de cache do PHP
+*.log
+*.cache
+*.tmp
+
+# Ignorar configurações do VSCode
+.vscode/
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de banco local ou sensíveis
+db.sql
+.env

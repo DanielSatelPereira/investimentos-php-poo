@@ -2,7 +2,8 @@
 
 require_once 'Database.php';
 
-class Dividendo {
+class Dividendo
+{
     private $db;
 
     public function __construct()
@@ -12,24 +13,23 @@ class Dividendo {
 
     public function adicionarDividendo($ativo, $valor, $dataRecebimento)
     {
-        $sql = "INSERT INTO dividendos (ativo, valor, data_recebimento) VALUES (:ativo, :valor, :data_recebimento)";
+        $sql = " INSERT INTO dividendos (ativo, valor, data_recebimento) VALUES (:ativo, :valor, :data_recebimento)";
         $query = $this->db->prepare($sql);
+
         $query->execute([
             'ativo' => $ativo,
             'valor' => $valor,
             'data_recebimento' => $dataRecebimento
+
         ]);
     }
-
     public function calcularDividendosPorAtivo()
     {
-        $sql = "SELECT ativo, SUM(valor) AS total_dividendos FROM 
-        dividendos GROUP BY ativo";
+        $sql = 'SELECT ATIVO, SUM(valor) AS total_dividendos FROM dividendos GROUP BY ativo';
 
         $query = $this->db->query($sql);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-
     public function listarDividendos()
     {
         $sql = "SELECT * FROM dividendos";
