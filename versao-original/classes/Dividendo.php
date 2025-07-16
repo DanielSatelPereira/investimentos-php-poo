@@ -25,7 +25,7 @@ class Dividendo
     }
     public function calcularDividendosPorAtivo()
     {
-        $sql = 'SELECT ATIVO, SUM(valor) AS total_dividendos FROM dividendos GROUP BY ativo';
+        $sql = 'SELECT ativo, SUM(valor) AS total_dividendos FROM dividendos GROUP BY ativo';
 
         $query = $this->db->query($sql);
         return $query->fetchAll(PDO::FETCH_ASSOC);

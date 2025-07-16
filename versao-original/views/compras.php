@@ -1,46 +1,55 @@
 <?php
-require_once 'classes/Compra.php';
+$basePath = '../';
+require_once $basePath . 'classes/Compra.php';
+session_start();
 
+$mensagem = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $compra = new Compra();
-    $resultado = $compra->adicionarCompra($_POST['ativo'], $_POST['quantidade'], $_POST['valor_unitario'], $_POST['data_compra']);
-    //echo "<script>alert('Dividendo adicionado com sucesso!');</script>";
+    $resultado = $compra->adicionarCompra(
+        $_POST['ativo'],
+        $_POST['quantidade'],
+        $_POST['valor_unitario'],
+        $_POST['data_compra']
+    );
 
+    if ($resultado) {
+        $mensagem = "Compra cadastrada com sucesso!";
+    } else {
+        $mensagem = "Erro ao cadastrar compra.";
+    }
 }
 
-
+$title = "Cadastrar Compra | Gestão de Ativos";
+include $basePath . 'includes/head.php';
 ?>
 
-<?php include 'head.php'; ?>
-
-<title>Relatório de Investimentos x Dividendos</title>
-</head>
-
 <body>
+    <?php include $basePath . 'includes/header.php'; ?>
 
-    <?php include 'header.php'; ?>
+    <main class="container">
+        <h1>Cadastrar Compra</h1>
 
-    <h1>Cadastrar Compra</h1>
-    <form method="POST">
-        <label for="ativo">Ativo:</label>
-        <input type="text" name="ativo" id="ativo" required><br>
+        <?php if ($mensagem): ?>
+        <p style="color: green;"><?= $mensagem ?></p>
+        <?php endif; ?>
 
-        <label for="quantidade">Quantidade:</label>
-        <input type="number" name="quantidade" id="quantidade" required><br>
+        <form method="POST">
+            <label for="ativo">Ativo:</label>
+            <input type="text" name="ativo" id="ativo" required><br>
 
-        <label for="valor_unitario">Valor Unitário</label>
-        <input type="number" name="valor_unitario" id="valor_unitario" required><br>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="quantidade" id="quantidade" required><br>
 
-        <label for="data_compra">Data da Compra:</label>
-        <input type="date" name="data_compra" id="data_compra" required><br>
+            <label for="valor_unitario">Valor Unitário:</label>
+            <input type="number" step="0.01" name="valor_unitario" id="valor_unitario" required><br>
 
-        <button type="submit">Cadastrar</button>
+            <label for="data_compra">Data da Compra:</label>
+            <input type="date" name="data_compra" id="data_compra" required><br>
 
-    </form>
-    <footer>
-        <p>Gestão de Ativos. Todos os direitos reservados</p>
-    </footer>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
 
-
-    <?php include 'footer.php'; ?>
+    <?php include $basePath . 'includes/footer.php'; ?>

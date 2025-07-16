@@ -1,15 +1,14 @@
 <?php
-
-require_once 'classes/Ativo.php';
-require_once 'classes/Dividendo.php';
+require_once __DIR__ . '/../classes/Ativo.php';
+require_once __DIR__ . '/../classes/Dividendo.php';
 
 function calcularTotalDividendos()
 {
-    $ativo = new Dividendo();
-    $investimentos = $ativo->listarDividendos();
+    $dividendo = new Dividendo();
+    $lista = $dividendo->listarDividendos();
 
     $valor = 0;
-    foreach ($investimentos as $item) {
+    foreach ($lista as $item) {
         $valor += $item['valor'];
     }
 

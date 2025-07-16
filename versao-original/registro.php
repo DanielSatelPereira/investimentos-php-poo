@@ -1,5 +1,7 @@
 <?php
-require_once 'classes/Usuario.php';
+$basePath = './';
+require_once $basePath . 'classes/Usuario.php';
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $usuario = new Usuario();
@@ -7,30 +9,29 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     header('Location: login.php');
     exit;
 }
+
+$title = "Registro | Gestão de Ativos";
+include $basePath . 'includes/head.php';
 ?>
 
-<?php include 'head.php'; ?>
-
-<title>Registro</title>
-</head>
-
 <body>
+    <?php include $basePath . 'includes/header.php'; ?>
 
-    <?php include 'header.php'; ?>
+    <main class="container">
+        <h1>Registrar Usuário</h1>
 
-    <h1>Registrar Usuario</h1>
-    <form method="POST">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" required><br>
+        <form method="POST">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required><br>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required><br>
 
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" required><br>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required><br>
 
-        <button type="submit">Registrar</button>
-    </form>
+            <button type="submit">Registrar</button>
+        </form>
+    </main>
 
-
-    <?php include 'footer.php'; ?>
+    <?php include $basePath . 'includes/footer.php'; ?>

@@ -13,13 +13,13 @@ class Compra
 
     public function adicionarCompra($ativo, $quantidade, $valorUnitario, $dataCompra)
     {
-        $sql = "INSERT INTO compras (ativo, quantidade, valor_unitario, data_compras) VALUES (:ativo, :quantidade, :valor_unitario,:data_compras)";
+        $sql = "INSERT INTO compras (ativo, quantidade, valor_unitario, data_compra) VALUES (:ativo, :quantidade, :valor_unitario,:data_compra)";
         $inserir = $this->db->prepare($sql);
         $inserir->execute([
             'ativo' => $ativo,
             'quantidade' => $quantidade,
             'valor_unitario' => $valorUnitario,
-            'data_compras' => $dataCompra
+            'data_compra' => $dataCompra
         ]);
 
         return true;
