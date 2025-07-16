@@ -1,13 +1,13 @@
 # 💼 Projeto Investimentos (PHP OO)
 
-Este repositório contém duas versões de um sistema de gestão de investimentos, desenvolvido no 3º período da faculdade UniALFA na disciplina de Desenvolvimento Web Avançado.
+Este repositório contém duas versões de um sistema de gestão de investimentos, desenvolvido no 3º período da faculdade UniALFA, na disciplina de **Desenvolvimento Web Avançado**.
 
 ## 📁 Estrutura do Repositório
 
 ```
-investimentos/
-├── versao-original/     # Versão criada em aula com base didática
-├── versao-refatorada/   # Versão reestruturada para portfólio
+investimentos-php-poo/
+├── versao-original/     # ✅ Versão final revisada e documentada (base didática)
+├── versao-refatorada/   # 🔧 Em construção com foco em boas práticas
 ├── db.sql               # Script para criar e popular o banco de dados
 └── README.md
 ```
@@ -15,23 +15,24 @@ investimentos/
 ## 🛠 Tecnologias utilizadas
 
 - PHP (com orientação a objetos)
-- MySQL
-- HTML5, CSS3
-- JavaScript
-- Chart.js
+- MySQL (via phpMyAdmin)
+- HTML5 e CSS3
+- JavaScript básico
+- Chart.js (gráficos de investimentos)
 
 ## 🚀 Como executar
 
-1. Clone o repositório
-2. Importe o arquivo `schema.sql` no phpMyAdmin para criar o banco `bolsa_de_valores`
-3. Execute os arquivos PHP em um servidor local (ex: XAMPP)
+1. Clone este repositório
+2. Importe o arquivo `db.sql` no phpMyAdmin para criar o banco `bolsa_de_valores`
+3. Utilize um servidor local (ex: XAMPP) para executar os arquivos PHP
 
 ## 📚 Versões disponíveis
 
-| Pasta               | Descrição                                                  |
-|--------------------|-------------------------------------------------------------|
-| `versao-original/` | Código original feito durante as aulas                      |
-| `versao-refatorada/` | Código reestruturado com boas práticas para portfólio     |
+| Pasta               | Descrição                                                                 |
+|--------------------|---------------------------------------------------------------------------|
+| `versao-original/` | ✅ Versão original concluída, com base didática, revisada e organizada     |
+| `versao-refatorada/` | 🔧 Versão planejada com foco em boas práticas e estrutura em camadas     |
 
 ---
-> Projeto acadêmico mantido por [Daniel Satel Pereira](https://github.com/DanielSatelPereira)
+
+> 🎓 Projeto acadêmico mantido por [Daniel Satel Pereira (Peridan)](https://github.com/DanielSatelPereira)
